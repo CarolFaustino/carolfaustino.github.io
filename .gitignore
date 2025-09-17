@@ -140,3 +140,5 @@ web_modules/             # Snowpack
 # Hosting
 # -----------------------------
 .netlify
+
+# Netlify
