@@ -3,18 +3,22 @@ import { Link } from '@builder.io/qwik-city';
 import { SiteFooter } from '~/components/site-footer';
 import { SiteHeader } from '~/components/site-header';
 
-// src/routes/layout.tsx (or your layout file)
 export default component$(() => {
-	return (
-		<div class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
-			<SiteHeader />
-			<main class="flex-1 flex flex-col">	
-				<Slot />
-			</main>
-		</div>
-	);
-});
+  return (
+    // Full viewport, column layout
+    <div class="h-[100svh] flex flex-col bg-slate-50 text-slate-900">
+      {/* Header takes natural height */}
+      <header class="sticky top-0 z-50">
+        <SiteHeader />
+      </header>
 
+      {/* Only scrollable area; fills the rest automatically */}
+      <main class="flex-1 overflow-y-auto snap-y snap-mandatory scroll-smooth">
+        <Slot />
+      </main>
+    </div>
+  );
+});
 
 
 export const head = {
