@@ -1,0 +1,1 @@
+import{_ as t}from"./q-fFn9hMSC.js";import{m as o,N as a}from"./q-BcAhc_2P.js";const r=o(a(()=>t(()=>import("./q-BMGgY2LT.js"),[]),"s_VKFlAWJuVm8")),n={title:"Carol Faustino — Animator & Illustrator",meta:[{name:"description",content:"Portfolio, reels, and contact."},{name:"viewport",content:"width=device-width, initial-scale=1"}]};export{r as default,n as head};
