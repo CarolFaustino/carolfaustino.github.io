@@ -8,10 +8,9 @@ export default component$(() => {
 	return (
 		<div class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 			<SiteHeader />
-			<main class="flex-1 flex flex-col"> {/* <- make main a flex container */}
+			<main class="flex-1 flex flex-col">	
 				<Slot />
 			</main>
-			<SiteFooter />
 		</div>
 	);
 });
