@@ -8,6 +8,8 @@ import { qwikCity } from "@builder.io/qwik-city/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import pkg from "./package.json";
 
+import tailwindcss from '@tailwindcss/vite'
+
 type PkgDep = Record<string, string>;
 const { dependencies = {}, devDependencies = {} } = pkg as any as {
 	dependencies: PkgDep;
@@ -26,7 +28,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
 	const usePolling = process.env.VITE_USE_POLLING === "true";
 	const pollingInterval = parseInt(process.env.VITE_POLLING_INTERVAL || "100", 10);
 	return {
-		plugins: [qwikCity(), qwikVite(), tsconfigPaths({ root: "." })],
+		plugins: [tailwindcss(), qwikCity(), qwikVite(), tsconfigPaths({ root: "." })],
 		// This tells Vite which dependencies to pre-build in dev mode.
 		optimizeDeps: {
 			// Put problematic deps that break bundling here, mostly those with binaries.
