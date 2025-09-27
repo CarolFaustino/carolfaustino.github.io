@@ -1,25 +1,38 @@
-import { component$, Slot } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
-import { SiteFooter } from '~/components/site-footer';
+import { component$, Slot, useVisibleTask$ } from '@builder.io/qwik';
 import { SiteHeader } from '~/components/site-header';
 
 export default component$(() => {
-  return (
-    // Full viewport, column layout
-    <div class="h-[100svh] flex flex-col bg-slate-50 text-slate-900">
-      {/* Header takes natural height */}
-      <header class="sticky top-0 z-50">
-        <SiteHeader />
-      </header>
+	// Measure header height once visible, and on resize
+	useVisibleTask$(() => {
+		const root = document.documentElement;
+		const header = document.getElementById('site-header');
+		const apply = () => {
+			if (header) root.style.setProperty('--header-h', `${header.offsetHeight}px`);
+		};
+		apply();
+		const ro = new ResizeObserver(apply);
+		if (header) ro.observe(header);
+		window.addEventListener('resize', apply, { passive: true });
+		return () => {
+			ro.disconnect();
+			window.removeEventListener('resize', apply);
+		};
+	});
 
-      {/* Only scrollable area; fills the rest automatically */}
-      <main class="flex-1 overflow-y-auto snap-y snap-mandatory scroll-smooth">
-        <Slot />
-      </main>
-    </div>
-  );
+	return (
+		<div class="h-[100svh] flex flex-col bg-slate-50 text-slate-900 relative">
+			{/* Fixed, transparent/glassy header overlay */}
+			<div id="site-header" class="fixed inset-x-0 top-0 z-50">
+				<SiteHeader />
+			</div>
+
+			{/* Scroll container; padding top equals real header height */}
+			<main class="flex-1 overflow-y-auto scroll-smooth pt-[var(--header-h)] scroll-pt-[var(--header-h)]">
+				<Slot />
+			</main>
+		</div>
+	);
 });
-
 
 export const head = {
 	title: 'Carol Faustino — Animator & Illustrator',
