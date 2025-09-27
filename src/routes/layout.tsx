@@ -3,17 +3,20 @@ import { Link } from '@builder.io/qwik-city';
 import { SiteFooter } from '~/components/site-footer';
 import { SiteHeader } from '~/components/site-header';
 
+// src/routes/layout.tsx (or your layout file)
 export default component$(() => {
 	return (
 		<div class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 			<SiteHeader />
-			<main class="flex-1">
+			<main class="flex-1 flex flex-col"> {/* <- make main a flex container */}
 				<Slot />
 			</main>
 			<SiteFooter />
 		</div>
 	);
 });
+
+
 
 export const head = {
 	title: 'Carol Faustino — Animator & Illustrator',

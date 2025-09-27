@@ -7,7 +7,7 @@ export const SiteHeader = component$(() => {
 		{ href: '/about/', label: 'About' },
 		{ href: '/projects/', label: 'Projects' },
 		{ href: '/gallery/', label: 'Gallery' },
-		{ href: '/contact/', label: 'Contact' },
+		//{ href: '/contact/', label: 'Contact' },
 	];
 	return (
 		<header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-slate-200">
