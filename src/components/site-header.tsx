@@ -3,7 +3,7 @@ import { Link } from '@builder.io/qwik-city';
 
 export const SiteHeader = component$(() => {
 	const nav = [
-		{ href: '/', label: 'Home' },
+		//{ href: '/', label: 'Home' },
 		{ href: '/about/', label: 'About' },
 		{ href: '/projects/', label: 'Projects' },
 		{ href: '/gallery/', label: 'Gallery' },

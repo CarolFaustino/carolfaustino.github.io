@@ -6,10 +6,13 @@ export default component$(() => {
 			<div class="grid md:grid-cols-2 gap-8 items-center">
 				<div>
 					<h1 class="text-3xl md:text-5xl font-bold leading-tight">
-						Animator & Illustrator
+						Hi, I’m Carol.
 					</h1>
+					<h2 class="text-3xl md:text-5xl font-bold leading-tight">
+						I draw worlds and make them move.
+					</h2>
 					<p class="mt-4 text-lg text-slate-700">
-						Minimal, playful visuals inspired by transport and road signage.
+						2D animation • game art • concept art
 					</p>
 				</div>
 				<img src="/assets/portraits/hero.jpg" class="rounded-3xl border border-slate-200" alt="Portrait" />
