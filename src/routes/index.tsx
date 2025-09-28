@@ -4,9 +4,10 @@ export default component$(() => {
 	return (
 		<>
 			{/* Section 1 — stays full screen */}
-			<section class="snap-start min-h-full flex items-center justify-center bg-blue-500">
+			<section class="snap-start min-h-[60svh] flex items-center justify-center bg-blue-500">
 				<div>content 1</div>
 			</section>
+
 
 			{/* Section 2 — Projects: 4 items, each 1/3 of the available height */}
 			<section class="snap-start bg-white">
